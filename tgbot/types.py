@@ -20,12 +20,27 @@ class ForceReply(CustomKeyboard):
     def __init__(self, selective=False):
         self.force_reply = True
 
+        if selective is not None:
+            self.selective = selective
+
 
 class ReplyKeyboardHide(CustomKeyboard):
     def __init__(self, selective=False):
         self.hide_keyboard = True
 
+        if selective is not None:
+            self.selective = selective
+
 
 class ReplyKeyboardMarkup(CustomKeyboard):
-    def __init__(self, options, resize_keyboard=False, one_time_keyboard=False, selective=False):
+    def __init__(self, options, resize_keyboard=None, one_time_keyboard=None, selective=None):
         self.keyboard = options
+
+        if resize_keyboard is not None:
+            self.resize_keyboard = resize_keyboard
+
+        if one_time_keyboard is not None:
+            self.one_time_keyboard = one_time_keyboard
+
+        if selective is not None:
+            self.selective = selective
